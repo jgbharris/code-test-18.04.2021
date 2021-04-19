@@ -8,6 +8,7 @@ function WeatherPage() {
     const [query, setQuery] = useState("");                 // Query is the postcode entered into the input box
     const [weather, setWeather] = useState({});             // Weather data object, set by openweather API call in UseEffect hook
     const [postCodeData, setPostCodeData] = useState({});   // Postcode data object set by postcodes.io API call in search function
+    const [errorMessage, setErrorMessage] = useState("")    // Error message to be displayed if not full postcode
     const [coordinates, setCoordinates] = useState({        // Latitiude and longitude coordinates set by postcodes.io API call in search function
         Lat: 0,
         Lng: 0
@@ -30,18 +31,37 @@ function WeatherPage() {
 
     // Postcode API call made on hitting enter when postcode typed into input 
 
+    // const search = (e) => {
+    //     if (e.key === "Enter") {
+    //         fetch(`https://api.postcodes.io/postcodes/${query}`)
+    //             .then((res) => res.json())
+    //             .then((result) => {
+    //                 setQuery("");
+    //                 setPostCodeData(result);
+    //                 setCoordinates({
+    //                     lat: result.result.latitude,
+    //                     lng: result.result.longitude
+    //                 });
+    //             })
+    //     }
+    // };
+
     const search = (e) => {
         if (e.key === "Enter") {
             fetch(`https://api.postcodes.io/postcodes/${query}`)
                 .then((res) => res.json())
                 .then((result) => {
-                    setQuery("");
-                    setPostCodeData(result);
-                    setCoordinates({
-                        ...coordinates,
-                        lat: result.result.latitude,
-                        lng: result.result.longitude
-                    });
+                    if (result.error) {
+                        console.log(result.error)
+                        setQuery(result.error)
+                    } else {
+                        setQuery("");
+                        setPostCodeData(result);
+                        setCoordinates({
+                            lat: result.result.latitude,
+                            lng: result.result.longitude
+                        });
+                    }
                 })
         }
     };
@@ -68,7 +88,7 @@ function WeatherPage() {
                         feels={Math.round((weather.list[0]["main"]["feels_like"]))}
                         humidity={(weather.list[0]["main"]["humidity"])}
                         description={(weather.list[0]["weather"][0]["description"])}
-                    /> : null}
+                    /> : errorMessage}
                 </div>
 
             </div>
