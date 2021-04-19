@@ -5,7 +5,7 @@ function CurrentWeather(props) {
     return (
         <div>
             <div className="location-container">
-            <div className="temperature">{props.temp}°C</div>
+                <div className="temperature">{props.temp}°C</div>
                 <div>
                     <img alt="icon" src={
                         props.icon
@@ -19,7 +19,7 @@ function CurrentWeather(props) {
                 <div className="date"> {props.date}</div>
             </div>
             <div className="weather-container">
-              
+
                 <div className="weather">Feels like: {props.feels}°C</div>
                 <div className="weather">Humidity: {props.humidity}%</div>
                 <div className="weather">Description: {props.description}</div>

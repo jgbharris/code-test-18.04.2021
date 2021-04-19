@@ -7,7 +7,6 @@
   font-family: 'Noto Sans JP';
   font-size: 200px;
   font-weight: normal;
-  color: black;
 }
 
 .container {
@@ -30,31 +29,25 @@ input {
 }
 
 .location-container {
-  color: black;
-  font-size: 30px;
+  color: white;
+  font-size: 50px;
   text-align: center;
 }
 
 .weather-container {
   text-align: center;
   padding-bottom: 5%;
+  color: white;
+  font-size: 20px;
 }
 
-.weather-container .temperature {
-  color: black;
-  position: relative;
-  display: inline-block;
-  margin: 30px auto;
-  padding: 15px 25px;
-  font-size: 50px;
-  font-weight: 700;
-  background-color: rgb(255, 255, 255, 0.1);
-  border-radius: 16px;
-  box-shadow: 3px 3px rgba(58, 53, 53, 0.73);
+.temperature {
+  color: white;
+  font-size: 100px;
 }
 
 .weather-container .weather {
-  color: black;
+  color: white;
   font-size: 30px;
 }
 

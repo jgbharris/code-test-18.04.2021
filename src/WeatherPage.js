@@ -50,22 +50,25 @@ function WeatherPage() {
                 <div className="search-container">
                     <input
                         type="text"
-                        placeholder="Enter Postcode"
+                        placeholder="Enter Full Postcode"
                         className="search-bar"
                         onChange={(e) => setQuery(e.target.value)}
                         value={query}
                         onKeyPress={search}
                     />
                 </div>
-                {typeof weather != "undefined" && typeof weather.list != "undefined" ? <CurrentWeather
-                 icon={weather.list[0]["weather"][0]["icon"]}
-                 postcode={postCodeData.result.postcode}
-                 country={weather.city.country}
-                 temp={Math.round(weather.list[0]["main"]["temp"])}
-                 feels={Math.round((weather.list[0]["main"]["feels_like"]))}
-                 humidity={(weather.list[0]["main"]["humidity"])}
-                 description={(weather.list[0]["weather"][0]["description"])}
-                 /> : null}
+                <div>
+                    {typeof weather !== "undefined" && typeof weather.list !== "undefined" && typeof postCodeData !== "undefined" ? <CurrentWeather
+                        icon={weather.list[0]["weather"][0]["icon"]}
+                        postcode={postCodeData.result.postcode}
+                        country={weather.city.country}
+                        temp={Math.round(weather.list[0]["main"]["temp"])}
+                        feels={Math.round((weather.list[0]["main"]["feels_like"]))}
+                        humidity={(weather.list[0]["main"]["humidity"])}
+                        description={(weather.list[0]["weather"][0]["description"])}
+                    /> : null}
+                </div>
+
             </div>
         </div>
     );
