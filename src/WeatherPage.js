@@ -26,7 +26,7 @@ function WeatherPage() {
     console.log("weather", weather)
     console.log("postCodeData", postCodeData)
 
-    
+
 
     // Postcode API call made on hitting enter when postcode typed into input 
 
@@ -60,7 +60,7 @@ function WeatherPage() {
                     />
                 </div>
                 <div>
-                    {typeof weather !== "undefined" && typeof weather.list !== "undefined" && typeof postCodeData !== "undefined" ? <CurrentWeather
+                    {typeof weather !== "undefined" && typeof weather.list !== "undefined" && typeof postCodeData.result !== "undefined" ? <CurrentWeather
                         icon={weather.list[0]["weather"][0]["icon"]}
                         postcode={postCodeData.result.postcode}
                         country={weather.city.country}

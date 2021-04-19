@@ -1,30 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap');
 
 .App {
+  font-family: 'Noto Sans JP';
+  font-weight: normal;
+  height: 100vm;
   text-align: center;
   width: 100%;
-  height: 100vm;
-  font-family: 'Noto Sans JP';
-  font-size: 200px;
-  font-weight: normal;
 }
 
 .container {
-  width: 100%;
-  height: 100vh;
   background-image: linear-gradient(to bottom right, red, yellow);
+  height: 100vh;
+  width: 100%;
 }
 
 input {
-  background-color: rgba(255, 255, 255, 0.3);
   background: white;
   border-radius: 4px;
-  font-size: 20px;
+  font-size: 30px;
   height: 56px;
   margin-top: 10%;
-  position: relative;
   text-align: center;
-  transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out;
   width: 60%;
 }
 
@@ -35,10 +31,9 @@ input {
 }
 
 .weather-container {
-  text-align: center;
-  padding-bottom: 5%;
   color: white;
   font-size: 20px;
+  text-align: center;
 }
 
 .temperature {
