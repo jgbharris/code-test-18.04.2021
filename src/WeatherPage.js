@@ -26,7 +26,9 @@ function WeatherPage() {
     console.log("weather", weather)
     console.log("postCodeData", postCodeData)
 
-    //---------------------------------------------------------------------------------------------------------------------------------------------
+    
+
+    // Postcode API call made on hitting enter when postcode typed into input 
 
     const search = (e) => {
         if (e.key === "Enter") {
