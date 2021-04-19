@@ -16,10 +16,8 @@ function CurrentWeather(props) {
                 <div className="location">
                     {props.postcode}, {props.country}
                 </div>
-                <div className="date"> {props.date}</div>
             </div>
             <div className="weather-container">
-
                 <div className="weather">Feels like: {props.feels}°C</div>
                 <div className="weather">Humidity: {props.humidity}%</div>
                 <div className="weather">Description: {props.description}</div>

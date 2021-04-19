@@ -8,12 +8,11 @@ function WeatherPage() {
     const [query, setQuery] = useState("");                 // Query is the postcode entered into the input box
     const [weather, setWeather] = useState({});             // Weather data object, set by openweather API call in UseEffect hook
     const [postCodeData, setPostCodeData] = useState({});   // Postcode data object set by postcodes.io API call in search function
-    const [errorMessage, setErrorMessage] = useState("")    // Error message to be displayed if not full postcode
     const [coordinates, setCoordinates] = useState({        // Latitiude and longitude coordinates set by postcodes.io API call in search function
         Lat: 0,
         Lng: 0
     });
-
+    const errorMessage = ""                                 // Error message to be displayed if not full postcode
 
 
     // UseEffect hook calls openweather API with latitude and longitude passed in from API call made in search function below
@@ -24,27 +23,8 @@ function WeatherPage() {
             .then((result) => setWeather(result))
     }, [coordinates]);
 
-    console.log("weather", weather)
-    console.log("postCodeData", postCodeData)
-
-
 
     // Postcode API call made on hitting enter when postcode typed into input 
-
-    // const search = (e) => {
-    //     if (e.key === "Enter") {
-    //         fetch(`https://api.postcodes.io/postcodes/${query}`)
-    //             .then((res) => res.json())
-    //             .then((result) => {
-    //                 setQuery("");
-    //                 setPostCodeData(result);
-    //                 setCoordinates({
-    //                     lat: result.result.latitude,
-    //                     lng: result.result.longitude
-    //                 });
-    //             })
-    //     }
-    // };
 
     const search = (e) => {
         if (e.key === "Enter") {
@@ -52,7 +32,6 @@ function WeatherPage() {
                 .then((res) => res.json())
                 .then((result) => {
                     if (result.error) {
-                        console.log(result.error)
                         setQuery(result.error)
                     } else {
                         setQuery("");
@@ -80,7 +59,7 @@ function WeatherPage() {
                     />
                 </div>
                 <div>
-                    {typeof weather !== "undefined" && typeof weather.list !== "undefined" && typeof postCodeData.result !== "undefined" ? <CurrentWeather
+                    {typeof weather !== "undefined"  && typeof weather.list !== "undefined" && typeof postCodeData.result !== "undefined" ? <CurrentWeather
                         icon={weather.list[0]["weather"][0]["icon"]}
                         postcode={postCodeData.result.postcode}
                         country={weather.city.country}
@@ -88,7 +67,7 @@ function WeatherPage() {
                         feels={Math.round((weather.list[0]["main"]["feels_like"]))}
                         humidity={(weather.list[0]["main"]["humidity"])}
                         description={(weather.list[0]["weather"][0]["description"])}
-                    /> : errorMessage}
+                    /> : null}
                 </div>
 
             </div>
