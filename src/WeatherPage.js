@@ -6,8 +6,8 @@ function WeatherPage() {
 
     const apiKey = "6b8511b9d8ac9196a8176b71717830cb"       // Have left API key in so it works out of the box but would normally have ENV file
     const [query, setQuery] = useState("");                 // Query is the postcode entered into the input box
-    const [weather, setWeather] = useState({});             // Weather object, set by openweather API call in UseEffect hook
-    const [postCodeData, setPostCodeData] = useState({});   // Post code object set by postcodes.io API call in search function
+    const [weather, setWeather] = useState({});             // Weather data object, set by openweather API call in UseEffect hook
+    const [postCodeData, setPostCodeData] = useState({});   // Postcode data object set by postcodes.io API call in search function
     const [coordinates, setCoordinates] = useState({        // Latitiude and longitude coordinates set by postcodes.io API call in search function
         Lat: 0,
         Lng: 0
@@ -57,6 +57,15 @@ function WeatherPage() {
                         onKeyPress={search}
                     />
                 </div>
+                {typeof weather != "undefined" && typeof weather.list != "undefined" ? <CurrentWeather
+                 icon={weather.list[0]["weather"][0]["icon"]}
+                 postcode={postCodeData.result.postcode}
+                 country={weather.city.country}
+                 temp={Math.round(weather.list[0]["main"]["temp"])}
+                 feels={Math.round((weather.list[0]["main"]["feels_like"]))}
+                 humidity={(weather.list[0]["main"]["humidity"])}
+                 description={(weather.list[0]["weather"][0]["description"])}
+                 /> : null}
             </div>
         </div>
     );
