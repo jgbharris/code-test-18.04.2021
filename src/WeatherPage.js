@@ -12,7 +12,6 @@ function WeatherPage() {
         Lat: 0,
         Lng: 0
     });
-    const errorMessage = ""                                 // Error message to be displayed if not full postcode
 
 
     // UseEffect hook calls openweather API with latitude and longitude passed in from API call made in search function below
