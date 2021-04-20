@@ -45,9 +45,6 @@ function WeatherPage() {
         }
     };
 
-    console.log(weather)
-    console.log(postCodeData)
-
     return (
         <div>
             <div className="container">
