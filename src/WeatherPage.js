@@ -59,7 +59,7 @@ function WeatherPage() {
                     />
                 </div>
                 <div>
-                    {typeof weather !== "undefined"  && typeof weather.list !== "undefined" && typeof postCodeData.result !== "undefined" ? <CurrentWeather
+                    {typeof weather !== "undefined" && typeof weather.list !== "undefined" && typeof postCodeData.result !== "undefined" ? <CurrentWeather
                         icon={weather.list[0]["weather"][0]["icon"]}
                         postcode={postCodeData.result.postcode}
                         name={postCodeData.result.admin_ward}
