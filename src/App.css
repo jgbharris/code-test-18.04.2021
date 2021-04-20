@@ -46,3 +46,15 @@ input {
   font-size: 30px;
 }
 
+@media only screen and (max-width: 600px) {
+  input {
+    background: white;
+    border-radius: 4px;
+    font-size: 20px;
+    height: 56px;
+    margin-top: 10%;
+    text-align: center;
+    width: 60%;
+  }
+   
+}

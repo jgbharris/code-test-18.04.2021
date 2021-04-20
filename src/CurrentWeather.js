@@ -14,7 +14,10 @@ function CurrentWeather(props) {
                     } />
                 </div>
                 <div className="location">
-                    {props.postcode}, {props.country}
+                    {props.name}, {props.postcode}
+                </div>
+                <div className="location">
+                    {props.country}
                 </div>
             </div>
             <div className="weather-container">

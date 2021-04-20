@@ -45,6 +45,9 @@ function WeatherPage() {
         }
     };
 
+    console.log(weather)
+    console.log(postCodeData)
+
     return (
         <div>
             <div className="container">
@@ -62,6 +65,7 @@ function WeatherPage() {
                     {typeof weather !== "undefined"  && typeof weather.list !== "undefined" && typeof postCodeData.result !== "undefined" ? <CurrentWeather
                         icon={weather.list[0]["weather"][0]["icon"]}
                         postcode={postCodeData.result.postcode}
+                        name={postCodeData.result.admin_ward}
                         country={weather.city.country}
                         temp={Math.round(weather.list[0]["main"]["temp"])}
                         feels={Math.round((weather.list[0]["main"]["feels_like"]))}
